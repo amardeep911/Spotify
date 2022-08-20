@@ -12,13 +12,13 @@ router.get('/logout',(req,res)=> {
 } )
 router.get(
     '/spotify',
-    passport.authenticate('spotify')
+    passport.authenticate('spotify' , {
+        scope: ['user-read-email', 'user-read-private','user-read-recently-played','user-top-read','user-follow-read','user-library-read','playlist-read-private','user-follow-read', 'user-follow-modify','playlist-read-collaborative'],
+        showDialog:true
+    })
   );
 
-router.get('/spotify/redirect',passport.authenticate('spotify', {
-    scope: ['user-read-email', 'user-read-private','user-read-recently-played','user-top-read','user-follow-read','user-library-read','playlist-read-private','user-follow-read'],
-    showDialog:true
-}) ,(req,res)=>{
+router.get('/spotify/redirect',passport.authenticate('spotify') ,(req,res)=>{
     res.redirect('/profile')
 
 }

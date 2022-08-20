@@ -6,7 +6,7 @@ exports.getSingleTrack = (req, res)=> {
     const config = {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: 'Bearer BQAtrNLa6PqlJA-lSyV4dKtQEOXgxVihqpRRReDJMZWLe8vroHREisBcFMeU4we6GB5jkAIYWgzkZeLVlZP4j1KHTlx-J7wxffbRDDJX_DYb5hmCQMcjyL0D2WL0BDbKNVq9HRYOVWWFvtrQDcYIhh3TIPFX5CsbfDdMUh8RC42A8Ynqr7v0tLteHnqvZQowTQ'
+          Authorization: 'Bearer BQDtEVtTgvZ7a3MmN1I_SlCNLWqXFtf-YyZws8gOhKQF-1Vi8p6iwkkgdlwRFWr6DcUVG9ryVfSzjGqjNrofk9GRSl8aeEkyRbj5ZXlebM0CWn5vhK_Tt6vmtQWAn7juOjBuNoh_tCbOoGvCflf1gANHxYnoJKThznvonUBS22F8DBFp4g1vNK9dy-HuL7XHlhcIXt2_Kk0RZR-OJBJ9EU5TtCfeK7ZKYIp3ZXbauEGHgLAj7BdWut78NQ'
         }
       }
     axios.get('https://api.spotify.com/v1/tracks/2JDsi7S0UmtGoyVPTda0ao', config).then(res => console.log(res.data)).catch(err=> console.log(err))
@@ -29,7 +29,7 @@ exports.getShows = (req, res)=> {
             Authorization: 'Bearer BQAtrNLa6PqlJA-lSyV4dKtQEOXgxVihqpRRReDJMZWLe8vroHREisBcFMeU4we6GB5jkAIYWgzkZeLVlZP4j1KHTlx-J7wxffbRDDJX_DYb5hmCQMcjyL0D2WL0BDbKNVq9HRYOVWWFvtrQDcYIhh3TIPFX5CsbfDdMUh8RC42A8Ynqr7v0tLteHnqvZQowTQ'
         }
     }
-    axios.get('https://api.spotify.com/v1/shows/3ptiw7nOKh5vsMoar79YGc', config).then(res => console.log(res.data)).catch(err => console.log(err))
+    axios.get('https://api.spotify.com/v1/shows/3ptiw7nOKh5vsMoar79YGc', config).then(res => console.log(res.data.items)).catch(err => console.log(err))
 }
 
 
@@ -40,15 +40,25 @@ exports.listShows = (req, res)=> {
             Authorization: 'Bearer BQAtrNLa6PqlJA-lSyV4dKtQEOXgxVihqpRRReDJMZWLe8vroHREisBcFMeU4we6GB5jkAIYWgzkZeLVlZP4j1KHTlx-J7wxffbRDDJX_DYb5hmCQMcjyL0D2WL0BDbKNVq9HRYOVWWFvtrQDcYIhh3TIPFX5CsbfDdMUh8RC42A8Ynqr7v0tLteHnqvZQowTQ'
         }
     }
-    axios.get('https://api.spotify.com/v1/me/shows', config).then(res => console.log(res)).catch(err => console.log(err.response))
+    axios.get('https://api.spotify.com/v1/me/shows', config).then(res => console.log(res.data.items)).catch(err => console.log(err.response))
 }
 
 exports.getUsersTrack = (req, res)=> {
     const config = {
         headers: {
             'content-type': 'application/json',
-            Authorization: 'Bearer BQDuznQkyyanTwfgcKq4k6C_cj4vahisgAkWw9pJKzQgNgYgL2ubQesvihhpvvTqtBT89HzwwUTt_e-lNBJpEMYqWGGig3vcQIG33cUKLJ8Te7RECfzdFuwHC8Zui_biZk7RQPL19X91o5p1yawty_z_-6M1KP6USO7Ltp1S545Debaa3JxLXu0giZUHN4Ggfw'
+            Authorization: 'Bearer BQDtEVtTgvZ7a3MmN1I_SlCNLWqXFtf-YyZws8gOhKQF-1Vi8p6iwkkgdlwRFWr6DcUVG9ryVfSzjGqjNrofk9GRSl8aeEkyRbj5ZXlebM0CWn5vhK_Tt6vmtQWAn7juOjBuNoh_tCbOoGvCflf1gANHxYnoJKThznvonUBS22F8DBFp4g1vNK9dy-HuL7XHlhcIXt2_Kk0RZR-OJBJ9EU5TtCfeK7ZKYIp3ZXbauEGHgLAj7BdWut78NQ'
         }
     }
-    axios.get('https://api.spotify.com/v1/me/tracks', config).then(res => console.log(res)).catch(err => console.log(err.response))
+    axios.get('https://api.spotify.com/v1/me/tracks', config).then(res => console.log(res.data.items)).catch(err => console.log(err.response))
+}
+
+exports.getUsersArtist = (req, res)=> {
+    const config = {
+        headers: {
+            'content-type': 'application/json',
+            Authorization: 'Bearer BQDtEVtTgvZ7a3MmN1I_SlCNLWqXFtf-YyZws8gOhKQF-1Vi8p6iwkkgdlwRFWr6DcUVG9ryVfSzjGqjNrofk9GRSl8aeEkyRbj5ZXlebM0CWn5vhK_Tt6vmtQWAn7juOjBuNoh_tCbOoGvCflf1gANHxYnoJKThznvonUBS22F8DBFp4g1vNK9dy-HuL7XHlhcIXt2_Kk0RZR-OJBJ9EU5TtCfeK7ZKYIp3ZXbauEGHgLAj7BdWut78NQ'
+        }
+    }
+    axios.get('https://api.spotify.com/v1/me/top/artists', config).then(res => console.log(res.data.items)).catch(err => console.log(err.response))
 }
