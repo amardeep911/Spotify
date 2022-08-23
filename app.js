@@ -26,7 +26,9 @@ app.use('/profile',profileRoutes)
 app.use('/spotify',spotifyRoutes)
 app.use('/', (req, res)=> {
     res.render('home', {user: req.user})
+
 })
+
 
 //connecting mongodb
 mongoose.connect(mongoKey, ()=>{

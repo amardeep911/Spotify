@@ -8,5 +8,5 @@ router.get('/Shows', spotifyController.getShows)
 router.get('/listShows', spotifyController.getShows)
 router.get('/userTrack', spotifyController.getUsersTrack)
 router.get('/userArtist', spotifyController.getUsersArtist)
-
+router.get('/getRefreshToken', spotifyController.getRefreshToken)
 module.exports = router;
